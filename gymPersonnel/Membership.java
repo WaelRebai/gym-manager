@@ -1,7 +1,7 @@
-package Personnel;
+
 
 public class Membership {
-		private String id;
+		private String reference;
 		private String type;
 		private double price;
 		private double discount;
@@ -11,8 +11,8 @@ public class Membership {
 			
 		}
 		
-		public Membership(String id, String type, double price, double discount) {
-			this.id = id;
+		public Membership(String reference, String type, double price, double discount) {
+			this.reference = reference;
 			this.type = type;
 			this.price = price;
 			this.discount = discount;
@@ -20,9 +20,9 @@ public class Membership {
 		}
 		
 		//getters
-		public String getId()
+		public String getReference()
 		{
-			return id;
+			return reference;
 		}
 		public String getType()
 		{
@@ -38,8 +38,8 @@ public class Membership {
 		}
 		
 		//setters
-		public void setId(String id) {
-			this.id = id;
+		public void setReference(String reference) {
+			this.reference = reference;
 		}
 		public void setType(String type) {
 			this.type = type;

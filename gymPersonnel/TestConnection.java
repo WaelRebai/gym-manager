@@ -1,4 +1,4 @@
-package Personnel;
+import java.sql.Connection;
 
 public class TestConnection {
 	

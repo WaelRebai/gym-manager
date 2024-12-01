@@ -1,19 +1,23 @@
-package Personnel;
 
 public class Person {
+	private String id;
 	private String name;
 	private String phoneNb;
 	private String email;
 	
 	//constructor
-	public Person(String name, String phoneNb, String email)
+	public Person(String id, String name, String phoneNb, String email)
 	{
+		this.id = id;
 		this.name = name;
 		this.phoneNb = phoneNb;
 		this.email = email;
 	}
 	
 	//getters
+	public String getId() {
+		return id;
+	}
 	public String getName() {
 		return name;
 	}
@@ -26,6 +30,10 @@ public class Person {
 	
 	
 	//setters
+	
+	public void setId(String id) {
+		this.id = id;
+	}
 	public void setName(String name) {
 		this.name = name;
 	}

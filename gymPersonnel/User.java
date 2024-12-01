@@ -1,13 +1,12 @@
-package Personnel;
 
 public class User extends Person{
 	private String username;
 	private String password;
 	
 	//constructor
-	public User(String name, String phoneNb, String email)
+	public User(String id, String name, String phoneNb, String email)
 	{
-		super(name, phoneNb, email);
+		super(id, name, phoneNb, email);
 		Membership membership = new Membership();
 	}
 	

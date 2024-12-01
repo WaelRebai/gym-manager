@@ -1,13 +1,12 @@
-package Personnel;
 
 public class Admin extends Person{
 	private String username;
 	private String password;
 	
 	//constructor
-	public Admin(String name, String phoneNb, String email, String username, String password)
+	public Admin(String id, String name, String phoneNb, String email, String username, String password)
 	{
-		super(name, phoneNb, email);
+		super(id, name, phoneNb, email);
 		this.username = username;
 		this.password = password;
 	}

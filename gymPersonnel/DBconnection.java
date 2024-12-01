@@ -1,23 +1,24 @@
-package Personnel;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBconnection {
-	// Replace 'gym_management' with your database name
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/gym_management";
-    // Default username for EasyPHP/MySQL
-    private static final String USER = "root";
-    // Default password (leave blank if none is set)
-    private static final String PASSWORD = ""; 
+    private static final String URL = "jdbc:mysql://localhost:3306/gym_manager";
+    private static final String USER = "root"; // Default username for EasyPHP
+    private static final String PASSWORD = ""; // Default password (empty for EasyPHP)
 
     public static Connection getConnection() {
         try {
+            // Load MySQL JDBC Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            // Establish connection
             return DriverManager.getConnection(URL, USER, PASSWORD);
-        }
-        	catch (SQLException e) {
-            System.out.println("Connection failed: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println("MySQL JDBC Driver not found: " + e.getMessage());
+            return null;
+        } catch (SQLException e) {
+            System.out.println("Database connection error: " + e.getMessage());
             return null;
         }
     }
