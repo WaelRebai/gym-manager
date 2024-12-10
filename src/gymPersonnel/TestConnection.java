@@ -1,3 +1,4 @@
+package src.gymPersonnel;
 import java.sql.Connection;
 
 public class TestConnection {

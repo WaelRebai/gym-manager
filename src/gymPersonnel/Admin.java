@@ -1,4 +1,4 @@
-
+package src.gymPersonnel;
 public class Admin extends Person{
 	
 	

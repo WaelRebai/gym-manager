@@ -1,5 +1,4 @@
-
-
+package src.gymPersonnel;
 public class Coach extends Person{
 	private double salaire;
 	

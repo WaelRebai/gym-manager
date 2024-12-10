@@ -4,7 +4,7 @@
  */
 package src;
 
-import gymPersonnel.*;
+import src.gymPersonnel.Person;
 import java.io.Console;
 
 /**
@@ -117,7 +117,7 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {                                      
-        Person p = new Person("test", "2555555", "test@gmail.com");
+        Person p = new Person("test", "tt", "2555555", "test@gmail.com");
         System.out.println(p);
         dispose();
         Register registerUI = new Register();
