@@ -1,10 +1,13 @@
 public class Equipment {
     private String nomEq;
-    private int idEq; 
-    private String maintenance; 
-    private String availability;
+    private int idEq;
+    private Maintenance maintenance;
+    enum Maintenance {Required, NotRequired};
+    private Availability availability;
+    enum Availability {Available, Unavailable};
 
-    public Equipment(String nomEq, int idEq, String maintenance, String availability) {
+
+    public Equipment(String nomEq, int idEq, Maintenance maintenance, Availability availability) {
         this.nomEq = nomEq;
         this.idEq = idEq;
         this.maintenance = maintenance;
@@ -26,22 +29,22 @@ public class Equipment {
         this.idEq = idEq;
     }
 
-    public String getMaintenance() {
+    public Maintenance getMaintenance() {
         return maintenance;
     }
 
-    public void setMaintenance(String maintenance) {
+    public void setMaintenance(Maintenance maintenance) {
         this.maintenance = maintenance;
     }
 
-    public String getAvailability() {
+    public Availability getAvailability() {
         return availability;
     }
 
-    public void setAvailability(String availability) {
-        this.availability = availability;
+    public void setAvailability(Availability newAvailability) {
+        this.availability = newAvailability;
     }
-    public void changeEquipment(String name, String availability) {
+    public void changeEquipment(String name, Availability availability) {
         this.nomEq = name;
         this.availability = availability;
     }
@@ -49,4 +52,5 @@ public class Equipment {
     public void searchById(int id) {
         // Logic to search equipment by ID (backend interaction)
     }
+
 }

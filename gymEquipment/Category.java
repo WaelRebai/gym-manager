@@ -1,9 +1,19 @@
 public class Category {
-    private String nomCat;
     private int idCat;
+    private String nomCat;
+    private int mainFreq;
 
-    public Category(String nomCat, int idCat) {
+    public Category(int idCat, String nomCat, int mainFreq) {
+        this.idCat = idCat;
         this.nomCat = nomCat;
+        this.mainFreq = mainFreq;
+    }
+
+    public int getIdCat() {
+        return idCat;
+    }
+
+    public void setIdCat(int idCat) {
         this.idCat = idCat;
     }
     public String getNomCat() {
@@ -14,13 +24,14 @@ public class Category {
         this.nomCat = nomCat;
     }
 
-    public int getIdCat() {
-        return idCat;
+    public int getMainFreq() {
+        return mainFreq;
     }
 
-    public void setIdCat(int idCat) {
-        this.idCat = idCat;
+    public void setMAinFreq(int mainFreq) {
+        this.mainFreq = mainFreq;
     }
+
     public void addEquipment() {
         // Logic to add equipment (backend interaction)
     }

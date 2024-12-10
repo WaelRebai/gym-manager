@@ -1,26 +1,24 @@
 
 public class Person {
-	private String id;
-	private String name;
+	private String username;
+	private String password;
 	private String phoneNb;
 	private String email;
-	
+	private Role role;
+	enum Role {Co, Us};
+
 	//constructor
-	public Person(String id, String name, String phoneNb, String email)
+	public Person(String username, String password, String phoneNb, String email)
 	{
-		this.id = id;
-		this.name = name;
+		this.username = username;
+		this.password = password;
 		this.phoneNb = phoneNb;
 		this.email = email;
 	}
+
+
 	
 	//getters
-	public String getId() {
-		return id;
-	}
-	public String getName() {
-		return name;
-	}
 	public String getPhoneNb() {
 		return phoneNb;
 	}
@@ -28,15 +26,16 @@ public class Person {
 		return email;
 	}
 	
+	public String getUsername() {
+		return username;
+	}
 	
+	public String getPassword() {
+		return password;
+	}
+	
+
 	//setters
-	
-	public void setId(String id) {
-		this.id = id;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public void setPhoneNb(String phoneNb) {
 		this.phoneNb = phoneNb;
 	}
@@ -44,6 +43,21 @@ public class Person {
 		this.email = email;
 	}
 	
+	public void setUsername(String username)
+	{
+		this.username = username;
+	}
+	public void setPassword(String password)
+	{
+		this.password = password;
+	}
+
 	
-	
+	//enum setter & getter
+	public Role  getRole() {
+		return role;
+	}
+	public void setRole(Role newRole) {
+		this.role = newRole;
+	}
 }
