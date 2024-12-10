@@ -4,8 +4,13 @@
  */
 package src;
 
+import src.gymPersonnel.DBconnection;
 import src.gymPersonnel.Person;
 import java.io.Console;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -117,11 +122,40 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {                                      
-        Person p = new Person("test", "tt", "2555555", "test@gmail.com");
-        System.out.println(p);
-        dispose();
-        Register registerUI = new Register();
-        registerUI.setVisible(true);
+       
+        String query = "SELECT * FROM Person WHERE username = ? AND password = ?";
+        String username= user.getText();
+        String password;
+
+        try (Connection conn = DBconnection.getConnection()) {
+            if (conn == null) {
+                System.out.println("Failed to establish database connection!");
+            }
+
+            // Prepare the statement
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setString(1, username);
+                stmt.setString(2, password);
+
+                // Execute the query
+                try (ResultSet rs = stmt.executeQuery()) {
+                    if (rs.next()) {
+                        System.out.println("Login successful!");
+                        if(rs.getString("role").equals("Ad")) {
+                            //INCLUDE ADMIN MENU
+                        }else if(rs.getString("role").equals("Co")) {
+                            //INCLUDE COACH MENU
+                        }else {
+                            //INCLUDE USER MENU
+                        }
+                    } else {
+                        System.out.println("Invalid username or password.");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } 
         
     }
 
