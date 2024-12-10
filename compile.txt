@@ -1,0 +1,5 @@
+javac -cp "D:\projet_java\gym-manager\gym-manager\src\mysql-connector-j-9.1.0.jar;." src/*.java 
+
+java -cp ".;D:\projet_java\gym-manager\gym-manager\src\mysql-connector-j-9.1.0.jar" src.login 
+
+java -cp ".;D:\projet_java\gym-manager\gym-manager\src\mysql-connector-j-9.1.0.jar" src.Register 

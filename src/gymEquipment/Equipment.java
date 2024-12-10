@@ -1,3 +1,4 @@
+package src.gymEquipment;
 public class Equipment {
     private String nomEq;
     private int idEq;

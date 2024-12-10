@@ -1,4 +1,6 @@
+package src.gymEquipment;
 import java.time.LocalDate;
+
 
 public class MaintenanceHistory {
     private int idMain;

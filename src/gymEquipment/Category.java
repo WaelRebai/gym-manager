@@ -1,3 +1,4 @@
+package src.gymEquipment;
 public class Category {
     private int idCat;
     private String nomCat;

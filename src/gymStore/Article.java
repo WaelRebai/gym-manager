@@ -1,3 +1,4 @@
+package src.gymStore;
 public class Article {
     private int idArt;
     private String nameArt;

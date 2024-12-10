@@ -2,7 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package gym.manager;
+package src;
+
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import src.gymPersonnel.DBconnection;
+import src.gymPersonnel.User;
 
 /**
  *
@@ -70,6 +77,9 @@ public class Register extends javax.swing.JFrame {
         jLabel3.setText("Password :");
 
         jLabel4.setText("Phone number :");
+
+        
+
 
         jLabel5.setText("Already have an account? ");
 
@@ -178,7 +188,43 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
-                // TODO add your handling code here:
+        String query = "INSERT INTO Person (username, password, phoneNb, email) VALUES (?, ?, ?, ?)";
+        String username= user.getText();
+        char[] ps = password.getPassword();
+        String password = new String(ps);
+        String phoneNb= phone.getText();
+        String emailINPUT = email.getText();
+
+        
+        
+            try (Connection conn = DBconnection.getConnection()) {
+                if (conn == null) {
+                    System.out.println("Failed to establish database connection!");
+                }
+    
+                // Prepare the statement
+                try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                    stmt.setString(1, username);
+                    stmt.setString(2, password);
+                    stmt.setString(3, phoneNb);
+                    stmt.setString(4, emailINPUT);
+                    // Execute the statement
+                    int rowsInserted = stmt.executeUpdate(); // Executes the INSERT statement
+                    if (rowsInserted > 0) {
+                        System.out.println("User registered successfully!");
+                    }
+                }
+                
+        } catch (Exception e) {
+            System.out.println("Error during user registration: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+
+
+
+        
+        // TODO add your handling code here:
     }//GEN-LAST:event_RegisterActionPerformed
 
     private void RegisterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RegisterKeyPressed

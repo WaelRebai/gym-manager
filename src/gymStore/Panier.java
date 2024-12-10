@@ -1,4 +1,4 @@
-
+package src.gymStore;
 public class Panier{
     // Attributs
     private double priceTotal;

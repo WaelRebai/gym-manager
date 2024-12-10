@@ -4,14 +4,13 @@
  */
 package src;
 
-import src.gymPersonnel.DBconnection;
-import src.gymPersonnel.Person;
+import src.gymPersonnel.*;
 import java.io.Console;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-package gym.manager;
+
 
 /**
  *
@@ -144,11 +143,12 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {                                      
-       
         String query = "SELECT * FROM Person WHERE username = ? AND password = ?";
         String username= user.getText();
-        String password;
-
+        char[] ps = password.getPassword();
+        String password = new String(ps);
+        
+        
         try (Connection conn = DBconnection.getConnection()) {
             if (conn == null) {
                 System.out.println("Failed to establish database connection!");
