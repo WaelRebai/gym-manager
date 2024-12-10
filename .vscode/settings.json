@@ -1,7 +1,12 @@
 {
     "java.project.sourcePaths": [
         "gymStore",
+        "gymPersonnel",
         "gymEquipment",
-        "gymPersonnel"
+        ""
+    ],
+    "cSpell.words": [
+        "jdbc"
     ]
+    
 }
